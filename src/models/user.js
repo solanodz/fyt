@@ -22,6 +22,7 @@ const userSchema = new Schema({
         required: true,
         select: false,
     },
+
 })
 
 const User = models.User || model('User', userSchema);
