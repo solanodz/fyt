@@ -26,21 +26,24 @@ export default function Home() {
 
   return (
     <main>
+      <div className="h-60 ml-24 w-80 rounded-full bg-sky-500  blur-3xl opacity-30 absolute" />
+
       <MaxWidthWrapper className="flex flex-col mt-12 justify-center w-fit gap-24 mx-auto">
         <div className="max-w-2xl mx-auto text-center">
+          {/* <Image src='/fyt-blue.png' height={1000} width={500} className="h-28 w-fit mx-auto my-4" /> */}
           <h1 className={`${montserrat.className} antialiased text-6xl sm:text-7xl font-black mx-auto text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-800 tracking-tight`}>Find Your Trainer</h1>
           <p className={`${montserrat.className} antialiased test-xs sm:text-md leading-tight text-muted-foreground font-medium tracking-tighter`}><span className="font-semibold">FYT</span>. Encuentra aquí al entrenador que mejor se adapte a tus necesidades.</p>
         </div>
         <div className='px-12 h-fit '>
-          <Highlight className={`${montserrat.className} text-white font-bold text-3xl`}>
+          <Highlight className={`${montserrat.className}  text-white font-bold text-3xl`}>
             Somos el intermediario entre el mundo y los entrenadores.
           </Highlight>
           <div className="flex flex-col w-full justify-between md:flex-row mx-auto items-center ">
-            <div className="max-w-2xl my-12">
+            <div className="max-w-2xl my-12 z-20 ">
               <div className={`${montserrat.className} relative antialiased text-lg leading-tight text-slate-800 font-medium tracking-tight rounded-xl w-fit my-4 flex flex-col gap-2 max-w-3xl`}>
 
-                <p>Facilitamos el proceso de búsqueda de clientes para los entrenadores personales y de entrenadores para aquellas personas que quieren mejorar su salud o rendimiento deportivo.</p>
-                <p>Nuestro objetivo es que las personas encuentren a su entrenador ideal y que los entrenadores puedan conseguir más clientes.</p>
+                <p >Facilitamos el proceso de búsqueda de clientes para los entrenadores personales y de entrenadores para aquellas personas que quieren mejorar su salud o rendimiento deportivo.</p>
+                <p >Nuestro objetivo es que las personas encuentren a su entrenador ideal y que los entrenadores puedan conseguir más clientes.</p>
                 {/* <HeroHighlightDemo /> */}
               </div>
               <div className="flex relative gap-4 w-fit">
@@ -48,16 +51,17 @@ export default function Home() {
                 <Button className='w-full'>Quiero publicar mis servicios</Button>
               </div>
             </div>
-            <div className="flex w-fit">
+            <div className="flex w-fit ">
               <Image
                 src="/hero-image.png"
                 alt="hero"
-                width={800}
+                width={1000}
                 height={500}
                 className="object-contain w-[400px] h-[200px]"
               />
             </div>
           </div>
+
         </div>
 
         <div className="flex flex-col h-[40rem] sm:h-[20rem] items-center justify-around sm:flex-row gap-12 max-w-5xl mx-auto w-full dark:bg-black bg-white  dark:bg-grid-white/[0.15] bg-grid-black/[0.1] relative">

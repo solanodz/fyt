@@ -20,7 +20,7 @@ const userSchema = new Schema({
         type: String,
         minlength: [6, "La contraseña debe tener al menos 6 caracteres"],
         required: true,
-
+        select: false,
     },
 })
 
