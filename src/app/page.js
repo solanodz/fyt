@@ -70,7 +70,7 @@ export default function Home() {
           {/* Esta es dummy data, mapear despues entrenadores desde el backend */}
           {perks.map((perk, index) => {
             return (
-              <div key={index} className="relative max-w-[290px] flex flex-col items-center gap-2 bg-sky-100 h-36 w-fit justify-center mx-auto text-center rounded-xl border border-sky-300">
+              <div key={index} className=" relative max-w-[290px] flex flex-col items-center gap-2 bg-sky-100 h-36 w-fit justify-center mx-auto text-center rounded-xl border border-sky-300 hover:scale-110 hover:-translate-y-4 duration-200">
                 <h2 className={`${montserrat.className} antialiased text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-800 tracking-tight`}>{perk.number}</h2>
                 <p className="text-blue-900 text-sm tracking-tighter leading-tight px-3">{perk.title}</p>
               </div>

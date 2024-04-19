@@ -16,10 +16,10 @@ const TrainerSchema = new Schema({
         type: Date,
         required: true,
     },
-    profilePhoto: {
-        type: String,
-        required: false,
-    },
+    // profilePhoto: {
+    //     type: String,
+    //     required: false,
+    // },
     email: {
         type: String,
         unique: true,
@@ -32,6 +32,10 @@ const TrainerSchema = new Schema({
     phone: {
         type: String,
         required: true,
+    },
+    instagram: {
+        type: String,
+        required: false,
     },
     service: {
         type: String,
