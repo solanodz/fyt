@@ -56,18 +56,36 @@ const TrainerForm = () => {
                 </section>
                 <section>
                     <p className='font-semibold text-lg'>Información de contacto</p>
-                    <div className='flex flex-col sm:flex-row gap-2'>
+                    <div className='flex flex-col items-end sm:flex-row gap-2'>
                         <div className='w-full'>
                             <Label>Email</Label>
                             <Input type="text" placeholder='solanodz.dev@gmail.com' className='w-full' name="email" />
                         </div>
-                        <div className='w-full'>
-                            <Label>Teléfono</Label>
-                            <Input type="text" placeholder='3812345678' className='w-full' name="phone" />
+                        <div className='flex flex-col w-full'>
+
+                            <div className='flex gap-2 items-center w-full'>
+                                <Label>Teléfono</Label>
+                                <AlertDialog>
+                                    <AlertDialogTrigger><InfoIcon size={20} /></AlertDialogTrigger>
+                                    <AlertDialogContent>
+                                        <AlertDialogHeader>
+                                            <AlertDialogTitle>Teléfono</AlertDialogTitle>
+                                            <AlertDialogDescription className='flex flex-col gap-2'>
+                                                <p>Escribe tu numero de teléfono de contacto poniendo la caracteristica de tu país primero seguido de tu numero. Por ejemplo &quot;54&quot; para Argentina y seguido de tu número de celular: 543812345678</p>
+                                                <p>Recuerda que este será el medio por el cuál tus clientes se comunicarán contigo a través de WhatsApp, así que asegurate de que el formato sea el correcto.</p>
+                                            </AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                        <AlertDialogFooter>
+                                            <AlertDialogAction>Close</AlertDialogAction>
+                                        </AlertDialogFooter>
+                                    </AlertDialogContent>
+                                </AlertDialog>
+                            </div>
+                            <Input type="tel" placeholder='543812345678' className='w-full' name="phone" />
                         </div>
                         <div className='w-full'>
                             <Label>Instagram</Label>
-                            <Input type="text" placeholder='@solanodz' className='w-full' name="instagram" />
+                            <Input type="text" placeholder='solanodz' className='w-full' name="instagram" />
                         </div>
                     </div>
                 </section>
@@ -79,7 +97,7 @@ const TrainerForm = () => {
                             <div className='flex gap-2 items-center w-full'>
                                 <Label>Especialidad</Label>
                                 <AlertDialog>
-                                    <AlertDialogTrigger><InfoIcon /></AlertDialogTrigger>
+                                    <AlertDialogTrigger><InfoIcon size={20} /></AlertDialogTrigger>
                                     <AlertDialogContent>
                                         <AlertDialogHeader>
                                             <AlertDialogTitle>Especialidad</AlertDialogTitle>
@@ -133,9 +151,9 @@ const TrainerForm = () => {
                 </section>
                 <section className='flex flex-col gap-2'>
                     <div className='flex items-center  gap-2'>
-                        <Label>Descripcion de tus servicios</Label>
+                        <Label>Descripción de tus servicios</Label>
                         <AlertDialog>
-                            <AlertDialogTrigger><InfoIcon /></AlertDialogTrigger>
+                            <AlertDialogTrigger><InfoIcon size={20} /></AlertDialogTrigger>
                             <AlertDialogContent>
                                 <AlertDialogHeader>
                                     <AlertDialogTitle>Descripción de tus servicios</AlertDialogTitle>
