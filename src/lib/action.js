@@ -1,6 +1,5 @@
 "use server"
 
-
 import { revalidatePath } from "next/cache"
 import Trainer from "@/models/trainer"
 import { connectDB } from "./mongoDB"
@@ -8,7 +7,7 @@ import { connectDB } from "./mongoDB"
 
 export const addTrainer = async (prevState, formData) => {
 
-    const { firstName, lastName, bornDate, profilePhoto, email, phone, instagram, service, yearsExp, address, city, state, country, description } = Object.fromEntries(formData)
+    const { firstName, lastName, bornDate, profilePhoto, email, phone, instagram, service, yearsExp, address, city, state, country, description } = formData;
 
     try {
         connectDB();
@@ -26,7 +25,7 @@ export const addTrainer = async (prevState, formData) => {
             city,
             state,
             country,
-            description
+            description,
         });
 
         await newTrainer.save();

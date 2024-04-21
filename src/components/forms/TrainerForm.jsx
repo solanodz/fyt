@@ -1,16 +1,7 @@
 
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
-import { CalendarIcon, InfoIcon } from 'lucide-react'
+import { InfoIcon } from 'lucide-react'
 import { Button } from '../ui/button'
-import { format } from "date-fns"
-import { cn } from "@/lib/utils"
-
 import {
     AlertDialog,
     AlertDialogAction,
@@ -25,14 +16,33 @@ import {
 import { Label } from '../ui/label'
 import { addTrainer } from '@/lib/action'
 import { useFormState } from "react-dom"
+import Tiptap from '../Tiptap'
+import { useState } from 'react'
 
 const TrainerForm = () => {
 
+    const [content, setContent] = useState('')
     const [state, formAction] = useFormState(addTrainer)
+
+    const handleContentChange = (reason) => {
+        setContent(reason)
+    }
+
+    // TO-DO --> TIPTAP DESCRIPTION SUBMIT. 22' -> https://www.youtube.com/watch?v=LiELuVk12ig
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        formData.append('description', content)
+        const data = Object.fromEntries(formData.entries())
+        console.log(data)
+        formAction(data)
+
+    }
 
     return (
         <div>
-            <form action={formAction} className='flex flex-col gap-4 p-3 border px-3 border-slate-300 rounded-xl drop-shadow-md bg-slate-100'>
+            <form action={formAction} onSubmit={handleSubmit} className='flex flex-col gap-4 p-3 border px-3 border-slate-300 rounded-xl drop-shadow-md bg-slate-100'>
                 <section>
                     <p className='font-semibold text-lg'>Información personal</p>
                     <div className='flex flex-col sm:flex-row gap-2 items-end'>
@@ -48,10 +58,10 @@ const TrainerForm = () => {
                             <Label>Fecha de nacimiento</Label>
                             <Input type='date' className='w-full' name="bornDate" />
                         </div>
-                        <div className='w-full'>
+                        {/* <div className='w-full'>
                             <Label>Foto de perfil</Label>
                             <Input type='file' className='w-full' placeholder='Foto de perfil' name="profilePhoto" />
-                        </div>
+                        </div> */}
                     </div>
                 </section>
                 <section>
@@ -175,8 +185,14 @@ const TrainerForm = () => {
                             </AlertDialogContent>
                         </AlertDialog>
                     </div>
+                    {/* <Textarea id="" cols="30" rows="10" placeholder='Descripción de tus servicios' className='w-full' name="description" /> */}
 
-                    <Textarea id="" cols="30" rows="10" placeholder='Descripción de tus servicios' className='w-full' name="description" />
+                    <Tiptap
+                        // name="description"
+                        content={content}
+                        onChange={(newContent) => handleContentChange(newContent)}
+                    />
+
                 </section>
                 <Button>Enviar</Button>
             </form>
